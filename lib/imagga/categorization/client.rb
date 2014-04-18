@@ -31,13 +31,12 @@ module Imagga
         self.class.post "/draft/classify/#{classifier_id}", options
       end
 
-      def classify_result(ticket_id, options={})
-        options = @options.merge(options)
-        self.class.get "/draft/classify/#{ticket_id}", options
+      def classify_result(ticket_id)
+        self.class.get "/draft/classify/#{ticket_id}"
       end
 
       def tasks(task_id)
-        self.class.get "/draft/tasks/#{task_id}", options
+        self.class.get "/draft/tasks/#{task_id}"
       end
     end
   end
