@@ -1,6 +1,6 @@
 # Imagga::Categorization
 
-TODO: Write a gem description
+This gem is a simple wrapper around Imagga's categorization API.
 
 ## Installation
 
@@ -18,7 +18,42 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+**Create a client**
+
+``` ruby
+client = Imagga::Categorization::Client.new app_key: YOUR_API_KEY
+```
+
+**Consume an endpoint**
+
+The gem currently supports 3 endpoints:
+- `/draft/classify/{classifier_id}`
+- `/draft/classify/result/{ticket_id}`
+- `/draft/tasks/{task_id}`
+
+Imagga's full api documentation [can be found here](http://docs.imagga.apiary.io/#classification). It lists the possible parameters for each endpoint.
+
+**Classify**
+
+```ruby
+parameters = {
+  "async": "1",
+  "urls": "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-prn2/969321_526818917353598_661738580_n.jpg, http://example.com/image2.jpg"
+}
+response = client.classify(YOUR_CLASSIFIER_ID, parameters)
+```
+
+**Classify result**
+
+```ruby
+response = client.classify(ticket_id)
+```
+
+**Task result**
+
+```ruby
+response = client.classify(task_id)
+```
 
 ## Contributing
 
