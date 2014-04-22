@@ -22,21 +22,25 @@ module Imagga
         # set the endpoint for HTTParty
         self.class.base_uri self.endpoint.to_s
 
-        # set a default app_key parameter for each HTTParty request
-        @options = { query: { app_key: self.app_key } }
+        # set a default api_key parameter for each HTTParty request
+        @options = {
+          query: { api_key: self.api_key }
+        }
       end
 
       def classify(classifier_id, options={})
-        options = @options.merge(options)
+        default_options = { async: 1 }
+        options.merge!(default_options)
+        options = @options.merge({ body: options.to_query })
         self.class.post "/draft/classify/#{classifier_id}", options
       end
 
       def classify_result(ticket_id)
-        self.class.get "/draft/classify/#{ticket_id}"
+        self.class.get "/draft/classify/result/#{ticket_id}", @options
       end
 
-      def tasks(task_id)
-        self.class.get "/draft/tasks/#{task_id}"
+      def task_result(task_id)
+        self.class.get "/draft/tasks/#{task_id}", @options
       end
     end
   end

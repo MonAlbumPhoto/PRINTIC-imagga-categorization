@@ -31,6 +31,9 @@ The gem currently supports 3 endpoints:
 - `/draft/classify/result/{ticket_id}`
 - `/draft/tasks/{task_id}`
 
+A call to any of these endpoints needs an `api_key`:
+> Before you begin you should [Request Your Free Trial](http://imagga.com/) from Imagga website in order to get an api_key. The api key is the only required authentication method currently and should be provided with every request as a parameter in the URL.
+
 Imagga's full api documentation [can be found here](http://docs.imagga.apiary.io/#classification). It lists the possible parameters for each endpoint.
 
 **Classify**
@@ -46,13 +49,13 @@ response = client.classify(YOUR_CLASSIFIER_ID, parameters)
 **Classify result**
 
 ```ruby
-response = client.classify(ticket_id)
+response = client.classify_result(ticket_id)
 ```
 
 **Task result**
 
 ```ruby
-response = client.classify(task_id)
+response = client.task_result(task_id)
 ```
 
 ## Contributing

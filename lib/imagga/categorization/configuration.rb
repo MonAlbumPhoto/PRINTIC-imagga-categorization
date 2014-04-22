@@ -2,7 +2,7 @@ module Imagga
   module Categorization
     module Configuration
       VALID_CONNECTION_KEYS = [:endpoint, :user_agent].freeze
-      VALID_OPTIONS_KEYS    = [:app_key].freeze
+      VALID_OPTIONS_KEYS    = [:api_key].freeze
       VALID_CONFIG_KEYS     = VALID_CONNECTION_KEYS + VALID_OPTIONS_KEYS
 
       DEFAULT_ENDPOINT      = 'http://api.imagga.com/'
@@ -21,7 +21,7 @@ module Imagga
         self.endpoint   = DEFAULT_ENDPOINT
         self.user_agent = DEFAULT_USER_AGENT
 
-        self.app_key    = DEFAULT_APP_KEY
+        self.api_key    = DEFAULT_APP_KEY
       end
 
       def configure
