@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["benjamin@printicapp.com"]
   spec.description   = %q{Ruby client for accessing Imagga categorization & training API}
   spec.summary       = %q{Ruby client for accessing Imagga categorization & training API}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/printic/imagga-categorization"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
